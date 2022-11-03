@@ -5,7 +5,7 @@ from modules import script_callbacks
 def on_ui_tabs():
     with gr.Blocks(analytics_enabled=False) as txt2img:
         with gr.Row():
-            prompt = gr.Textbox(label="Prompt", elem_id=f"{id_part}_prompt", show_label=False, lines=2,
+            prompt = gr.Textbox(label="Prompt", show_label=False, lines=2,
                                 placeholder="Prompt (press Ctrl+Enter or Alt+Enter to generate)",
                                 value="(best quality:1.9),(masterpiece:1.2),(highres),extremely detailed CG unity 8K wallpaper,\n"
                                       "(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful),\n"
