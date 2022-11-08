@@ -78,8 +78,8 @@ hairColorList = ["pink hair", "blonde hair", "sliver hair"]
 hairStyleList = ["long hair", "gradient hair", "side ponytail", "princess head", "ponytail"]
 
 # 身体特征描述
-characterPartList = ["nsfw", "nsfw,(finely detailed pussy)", "nsfw,(finely detailed pussy),(vaginal)",
-                     "(finely detailed pussy),(vaginal)", "nsfw,nipples", "nsfw,nipples,(finely detailed pussy)"]
+characterPartList = ["nsfw,(finely detailed pussy)", "nsfw,(finely detailed pussy),(vaginal)",
+                     "nsfw,nipples", "nsfw,nipples,(finely detailed pussy)","nipples"]
 
 
 def getString(ls):
@@ -196,7 +196,7 @@ def getBasePrompt(quality, featuresCharacters, others, background, characterPart
             s = ""
             s += quality + ",\n"
             s += featuresCharacters + ","
-            s += "nsfw" + ","
+            s += "nsfw,nipples" + ","
             s += randomCharacterPart + ",\n"
             s += others + ","
             s += randomEyes + ",\n"
