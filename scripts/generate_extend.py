@@ -97,7 +97,7 @@ def on_ui_tabs():
                                                "long face, bad eyes, fused eyes poorly drawn eyes, extra eyes, "
                                                "malformed limbs, more than 2 nipples,missing nipples, "
                                                "different nipples, fused nipples, bad nipples, poorly drawn nipples, "
-                                               "black nipples, colorful nipples, gross proportions. short arm, "
+                                               "black nipples, colorful nipples, gross proportions, short arm, "
                                                "(((missing arms))), missing thighs, missing calf, missing legs, "
                                                "mutation, duplicate, morbid, mutilated, poorly drawn hands, "
                                                "more than 1 left hand, more than 1 right hand, deformed, (blurry), "
