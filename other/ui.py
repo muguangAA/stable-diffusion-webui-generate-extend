@@ -749,7 +749,7 @@ def create_ui(wrap_gradio_gpu_call):
                                          value="(best quality:1.9),(masterpiece:1.2),(highres),extremely detailed CG unity 8K wallpaper,\n"
                                                "(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful)")
                     featuresCharacters = gr.Textbox(label="featuresCharacters", lines=1,
-                                                    value="(loli:1.2),(cute girl:1.3),small breasts")
+                                                    value="(loli:1.3),(cute girl:1.4),small breasts")
                     others = gr.Textbox(label="others", lines=1,
                                         value="(heart-shaped pupils),(beautiful detailed eyes)")
                     background = gr.Textbox(label="background", lines=1, value="beautiful detailed sky")
@@ -764,9 +764,9 @@ def create_ui(wrap_gradio_gpu_call):
                     nsfwDescribeRandomWeight = gr.Slider(label="nsfwDescribeRandomWeight", lines=1, minimum=0,
                                                          maximum=10, value=5)
                     justGenerate = gr.Checkbox(label="justGenerate", lines=1, value=False)
-                    stepsAndScaleList = gr.Textbox(label="stepsAndScaleList", lines=1, value="[[28, 7]]")
+                    stepsAndScaleList = gr.Textbox(label="stepsAndScaleList", lines=1, value="[[35, 7]]")
                     pixelList = gr.Textbox(label="pixelList", lines=1,
-                                           value="[[512, 512], [512, 768], [768, 512], [768,1024]]")
+                                           value="[[768,1024],[1024,768],[1024,1024]]")
 
             txt2img_gallery, generation_info, html_info = create_output_panel("txt2img", opts.outdir_txt2img_samples)
             parameters_copypaste.bind_buttons({"txt2img": txt2img_paste}, None, txt2img_prompt)
