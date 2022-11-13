@@ -759,7 +759,7 @@ def create_ui(wrap_gradio_gpu_call):
                     characterPartRandomWeight = gr.Slider(label="characterPartRandomWeight", lines=1, minimum=0,
                                                           maximum=10, value=5)
                     nsfwDescribeNumIsRandom = gr.Checkbox(label="nsfwDescribeNumIsRandom", lines=1, value=False)
-                    nsfwDescribeNum = gr.Slider(label="nsfwDescribeNum", lines=1, minimum=0, maximum=100, value=0,
+                    nsfwDescribeNum = gr.Slider(label="nsfwDescribeNum", lines=1, minimum=0, maximum=1000, value=0,
                                                 step=1)
                     nsfwDescribeRandomWeight = gr.Slider(label="nsfwDescribeRandomWeight", lines=1, minimum=0,
                                                          maximum=10, value=5)
