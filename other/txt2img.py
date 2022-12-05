@@ -376,6 +376,7 @@ def generateAndReturn(prompt, negative_prompt, prompt_style, prompt_style2, step
                                characterPartNumIsRandom, characterPartNum, characterPartRandomWeight,
                                nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight)[0]
     print("prompt: " + prompt)
+    print("sampler: " + sampler_index)
     return generate(prompt, negative_prompt, prompt_style, prompt_style2, steps, sampler_index, restore_faces,
                     tiling, n_iter, batch_size, cfg_scale, seed, subseed, subseed_strength, seed_resize_from_h,
                     seed_resize_from_w,
