@@ -9,6 +9,7 @@ import random
 from zipfile import ZipFile
 import datetime
 import os
+from modules.sd_samplers import samplers
 
 # 背景列表
 backgroundList = ['indoors', 'tatami', 'church', 'shop', 'fountain', 'classroom',
@@ -300,6 +301,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
     stepsAndScaleList = eval(stepsAndScaleList)
     pixelList = eval(pixelList)
 
+
     if justGenerate:
         return justGenerateMethod(prompt, negative_prompt, prompt_style, prompt_style2, steps, sampler_index,
                                   restore_faces,
@@ -376,7 +378,7 @@ def generateAndReturn(prompt, negative_prompt, prompt_style, prompt_style2, step
                                characterPartNumIsRandom, characterPartNum, characterPartRandomWeight,
                                nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight)[0]
     print("prompt: " + prompt)
-    print("sampler: " + sampler_index)
+    print("sampler: " + samplers[sampler_index])
     return generate(prompt, negative_prompt, prompt_style, prompt_style2, steps, sampler_index, restore_faces,
                     tiling, n_iter, batch_size, cfg_scale, seed, subseed, subseed_strength, seed_resize_from_h,
                     seed_resize_from_w,
@@ -424,7 +426,7 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed,
             f.write(f'width: {width}\n')
             f.write(f'height: {height}\n')
             f.write(f'seed: {seed}\n')
-            f.write(f'sampler: {sampler_index}\n')
+            f.write(f'sampler: {samplers[sampler_index]}\n')
     except Exception as e:
         print("failed to save imageInfo:", e)
 
