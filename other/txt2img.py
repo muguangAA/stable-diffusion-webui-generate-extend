@@ -1,4 +1,5 @@
 import modules.scripts
+from modules import sd_samplers
 from modules.processing import StableDiffusionProcessing, Processed, StableDiffusionProcessingTxt2Img, \
     StableDiffusionProcessingImg2Img, process_images
 from modules.shared import opts, cmd_opts
@@ -10,6 +11,8 @@ from zipfile import ZipFile
 import datetime
 import os
 from modules.sd_samplers import samplers
+import json
+
 
 # 背景列表
 backgroundList = ['indoors', 'tatami', 'church', 'shop', 'fountain', 'classroom',
@@ -287,22 +290,26 @@ def optimizeTheFormat(s: str):
     return s
 
 
-def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2: str, steps: int, sampler_index: int,
-            restore_faces: bool, tiling: bool, n_iter: int, batch_size: int, cfg_scale: float, seed: int, subseed: int,
-            subseed_strength: float, seed_resize_from_h: int, seed_resize_from_w: int, seed_enable_extras: bool,
-            height: int, width: int, enable_hr: bool, denoising_strength: float, firstphase_width: int,
-            firstphase_height: int,
-            useTheFollowingPrompt: bool, isRandom: bool, methodName: str, quality: str,
-            featuresCharacters: str, others: str, background: str, characterPartNumIsRandom: bool,
-            characterPartNum: int, characterPartRandomWeight: int, nsfwDescribeNumIsRandom: bool,
-            nsfwDescribeNum: int, nsfwDescribeRandomWeight: int, justGenerate: bool, stepsAndScaleList: str,
-            pixelList: str,
-            *args):
-    stepsAndScaleList = eval(stepsAndScaleList)
-    pixelList = eval(pixelList)
+def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2: str, steps: int, sampler_index: int, restore_faces: bool, tiling: bool, n_iter: int, batch_size: int, cfg_scale: float, seed: int, subseed: int, subseed_strength: float, seed_resize_from_h: int, seed_resize_from_w: int, seed_enable_extras: bool, height: int, width: int, enable_hr: bool, denoising_strength: float, firstphase_width: int, firstphase_height: int, *args):
 
+    jsonLoad = json.loads(negative_prompt)
+    useTheFollowingPrompt = jsonLoad["useTheFollowingPrompt"]
+    isRandom = jsonLoad["isRandom"]
+    methodName = jsonLoad["methodName"]
+    quality = jsonLoad["quality"]
+    featuresCharacters = jsonLoad["featuresCharacters"]
+    others = jsonLoad["others"]
+    background = jsonLoad["background"]
+    characterPartNumIsRandom = jsonLoad["characterPartNumIsRandom"]
+    characterPartRandomWeight = jsonLoad["characterPartRandomWeight"]
+    nsfwDescribeNumIsRandom = jsonLoad["nsfwDescribeNumIsRandom"]
+    nsfwDescribeNum = jsonLoad["nsfwDescribeNum"]
+    nsfwDescribeRandomWeight = jsonLoad["nsfwDescribeRandomWeight"]
+    justGenerate = jsonLoad["justGenerate"]
+    stepsAndScaleList = eval(jsonLoad["stepsAndScaleList"])
+    pixelList = eval(jsonLoad["pixelList"])
 
-    if justGenerate:
+    if useTheFollowingPrompt:
         return justGenerateMethod(prompt, negative_prompt, prompt_style, prompt_style2, steps, sampler_index,
                                   restore_faces,
                                   tiling, n_iter, batch_size, cfg_scale, seed, subseed, subseed_strength,
@@ -310,7 +317,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                                   seed_enable_extras, height, width, enable_hr, denoising_strength, firstphase_width,
                                   firstphase_height, stepsAndScaleList, pixelList, methodName, isRandom,
                                   quality, featuresCharacters, others, background,
-                                  characterPartNumIsRandom, characterPartNum, characterPartRandomWeight,
+                                  characterPartNumIsRandom, 1, characterPartRandomWeight,
                                   nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight, *args)
     else:
         return generateAndReturn(prompt, negative_prompt, prompt_style, prompt_style2, steps, sampler_index,
@@ -320,7 +327,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                                  seed_enable_extras, height, width, enable_hr, denoising_strength, firstphase_width,
                                  firstphase_height, methodName, isRandom,
                                  quality, featuresCharacters, others, background,
-                                 characterPartNumIsRandom, characterPartNum, characterPartRandomWeight,
+                                 characterPartNumIsRandom, 1, characterPartRandomWeight,
                                  nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight,
                                  useTheFollowingPrompt, *args)
 
@@ -372,11 +379,6 @@ def generateAndReturn(prompt, negative_prompt, prompt_style, prompt_style2, step
                       characterPartNumIsRandom, characterPartNum, characterPartRandomWeight,
                       nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight, useTheFollowingPrompt, *args):
     print("生成且返回")
-    if useTheFollowingPrompt:
-        prompt = getPromptList(prompt, negative_prompt, methodName, isRandom,
-                               quality, featuresCharacters, others, background,
-                               characterPartNumIsRandom, characterPartNum, characterPartRandomWeight,
-                               nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight)[0]
     print("prompt: " + prompt)
     print("sampler_index: " + str(sampler_index))
     print("sampler: " + str(samplers[sampler_index]))
