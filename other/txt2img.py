@@ -383,20 +383,20 @@ def generateAndReturn(prompt, negative_prompt, prompt_style, prompt_style2, step
                     firstphase_height, *args)
 
 
-def batchSave(processed, prompt, negative_prompt, steps, scale, width, height, seed):
+def batchSave(processed, prompt, negative_prompt, steps, scale, width, height, seed, sampler_index):
     # 我的保存图片
     print("图片的数量：" + str(len(processed.images)))
     imageList = processed.images
     if len(imageList) > 1:
-        saveImage(imageList[0], prompt, negative_prompt, steps, scale, width, height, 0)
+        saveImage(imageList[0], prompt, negative_prompt, steps, scale, width, height, 0, sampler_index)
         for i in range(1, len(imageList)):
-            saveImage(imageList[i], prompt, negative_prompt, steps, scale, width, height, seed)
+            saveImage(imageList[i], prompt, negative_prompt, steps, scale, width, height, seed, sampler_index)
             seed += 1
     else:
-        saveImage(imageList[0], prompt, negative_prompt, steps, scale, width, height, seed)
+        saveImage(imageList[0], prompt, negative_prompt, steps, scale, width, height, seed, sampler_index)
 
 
-def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed):
+def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed, sampler_index):
     filePath = "/content/stable-diffusion-webui/images/"
     drivePath = "/content/drive/MyDrive/stable-diffusion-webui/images/"
     os.makedirs(drivePath, exist_ok=True)
@@ -423,6 +423,7 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed)
             f.write(f'width: {width}\n')
             f.write(f'height: {height}\n')
             f.write(f'seed: {seed}\n')
+            f.write(f'sampler: {sampler_index}\n')
     except Exception as e:
         print("failed to save imageInfo:", e)
 
@@ -495,6 +496,6 @@ def generate(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2
     if opts.do_not_show_images:
         processed.images = []
 
-    batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width, height, seed)
+    batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width, height, seed, sampler_index)
 
     return processed.images, generation_info_js, plaintext_to_html(processed.info)
