@@ -16,23 +16,23 @@ def on_ui_tabs():
         with gr.Row():
             parameter = gr.Textbox(label="parameter", show_label=False,
                                    lines=10,
-                                   value='{'
-                                         '"negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, username, blurry, artist name, bad feet, penis",'
-                                         '"useTheFollowingPrompt": false,'
-                                         '"isRandom": true,'
-                                         '"methodName": "getRandomPrompt",'
-                                         '"quality": "(best quality:1.9),(masterpiece:1.2),(highres),extremely detailed CG unity 8K wallpaper,(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful)",'
-                                         '"featuresCharacters": "(loli:1.3),(cute girl:1.4),small breasts",'
-                                         '"others": "(heart-shaped pupils),(beautiful detailed eyes)",'
-                                         '"background": "",'
-                                         '"characterPartNumIsRandom": true,'
-                                         '"characterPartRandomWeight": 3,'
-                                         '"nsfwDescribeNumIsRandom": true,'
-                                         '"nsfwDescribeNum": 5,'
-                                         '"nsfwDescribeRandomWeight": 4,'
-                                         '"justGenerate": true,'
-                                         '"stepsAndScaleList": "[[15, 7]]",'
-                                         '"pixelList": "[[768,1024],[1024,768]"'
+                                   value='{\n' \
+                                         '"negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, username, blurry, artist name, bad feet, penis",\n' \
+                                         '"useTheFollowingPrompt": false,\n' \
+                                         '"isRandom": true,\n' \
+                                         '"methodName": "getRandomPrompt",\n' \
+                                         '"quality": "(best quality:1.9),(masterpiece:1.2),(highres),extremely detailed CG unity 8K wallpaper,(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful)",\n' \
+                                         '"featuresCharacters": "(loli:1.3),(cute girl:1.4),small breasts",\n' \
+                                         '"others": "(heart-shaped pupils),(beautiful detailed eyes)",\n' \
+                                         '"background": "",\n' \
+                                         '"characterPartNumIsRandom": true,\n' \
+                                         '"characterPartRandomWeight": 3,\n' \
+                                         '"nsfwDescribeNumIsRandom": true,\n' \
+                                         '"nsfwDescribeNum": 5,\n' \
+                                         '"nsfwDescribeRandomWeight": 4,\n' \
+                                         '"justGenerate": true,\n' \
+                                         '"stepsAndScaleList": "[[15, 7]]",\n' \
+                                         '"pixelList": "[[768,1024],[1024,768]"\n' \
                                          '}')
 
         with gr.Row():
