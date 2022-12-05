@@ -32,7 +32,7 @@ def on_ui_tabs():
                                          '"nsfwDescribeRandomWeight": 4,\n' \
                                          '"justGenerate": true,\n' \
                                          '"stepsAndScaleList": "[[15, 7]]",\n' \
-                                         '"pixelList": "[[768,1024],[1024,768]"\n' \
+                                         '"pixelList": "[[768,1024],[1024,768]]"\n' \
                                          '}')
 
         with gr.Row():
