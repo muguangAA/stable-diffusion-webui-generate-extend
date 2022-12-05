@@ -378,7 +378,8 @@ def generateAndReturn(prompt, negative_prompt, prompt_style, prompt_style2, step
                                characterPartNumIsRandom, characterPartNum, characterPartRandomWeight,
                                nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight)[0]
     print("prompt: " + prompt)
-    print("sampler: " + samplers[sampler_index])
+    print("sampler_index: " + str(sampler_index))
+    print("sampler: " + str(samplers[sampler_index]))
     return generate(prompt, negative_prompt, prompt_style, prompt_style2, steps, sampler_index, restore_faces,
                     tiling, n_iter, batch_size, cfg_scale, seed, subseed, subseed_strength, seed_resize_from_h,
                     seed_resize_from_w,
@@ -426,7 +427,7 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed,
             f.write(f'width: {width}\n')
             f.write(f'height: {height}\n')
             f.write(f'seed: {seed}\n')
-            f.write(f'sampler: {samplers[sampler_index]}\n')
+            f.write(f'sampler: {str(samplers[sampler_index])}\n')
     except Exception as e:
         print("failed to save imageInfo:", e)
 
