@@ -14,8 +14,8 @@ def on_ui_tabs():
                                 )
 
         with gr.Row():
-            parameter = gr.Textbox(label="parameter", show_label=False,
-                                   lines=10,
+            parameter = gr.Textbox(label="parameter", show_label=True,
+                                   lines=30,
                                    value='{\n' \
                                          '"negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, username, blurry, artist name, bad feet, penis",\n' \
                                          '"useTheFollowingPrompt": false,\n' \
