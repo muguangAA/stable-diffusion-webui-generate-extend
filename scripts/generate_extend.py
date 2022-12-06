@@ -17,23 +17,23 @@ def on_ui_tabs():
             parameter = gr.Textbox(label="parameter", show_label=True,
                                    lines=30,
                                    value='{\n' \
-                                         '"negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, username, blurry, artist name, bad feet, penis",\n' \
-                                         '"useTheFollowingPrompt": false,\n' \
-                                         '"isRandom": true,\n' \
-                                         '"methodName": "getRandomPrompt",\n' \
-                                         '"quality": "(best quality:1.9),(masterpiece:1.2),(highres),extremely detailed CG unity 8K wallpaper,(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful)",\n' \
-                                         '"featuresCharacters": "(loli:1.3),(cute girl:1.4),small breasts",\n' \
-                                         '"others": "(heart-shaped pupils),(beautiful detailed eyes)",\n' \
-                                         '"background": "",\n' \
-                                         '"characterPartNumIsRandom": true,\n' \
-                                         '"characterPartRandomWeight": 3,\n' \
-                                         '"nsfwDescribeNumIsRandom": true,\n' \
-                                         '"nsfwDescribeNum": 5,\n' \
-                                         '"nsfwDescribeRandomWeight": 4,\n' \
-                                         '"stepsAndScaleList": "[[20, 6]]",\n' \
-                                         '"pixelList": "[[768,1024],[1024,768]]",\n' \
-                                         '''"samplerList": "['Euler', 'DPM++ 2M Karras', 'DPM++ SDE Karras']\n''' \
-                                         '}')
+                                     '"negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, username, blurry, artist name, bad feet, penis",\n' \
+                                     '"useTheFollowingPrompt": false,\n' \
+                                     '"isRandom": true,\n' \
+                                     '"methodName": "getRandomPrompt",\n' \
+                                     '"quality": "(best quality:1.9),(masterpiece:1.2),(highres),extremely detailed CG unity 8K wallpaper,(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful)",\n' \
+                                     '"featuresCharacters": "(loli:1.3),(cute girl:1.4),small breasts",\n' \
+                                     '"others": "(heart-shaped pupils),(beautiful detailed eyes)",\n' \
+                                     '"background": "",\n' \
+                                     '"characterPartNumIsRandom": true,\n' \
+                                     '"characterPartRandomWeight": 3,\n' \
+                                     '"nsfwDescribeNumIsRandom": true,\n' \
+                                     '"nsfwDescribeNum": 5,\n' \
+                                     '"nsfwDescribeRandomWeight": 4,\n' \
+                                     '"stepsAndScaleList": [[20, 6]],\n' \
+                                     '"pixelList": [[768,1024],[1024,768]],\n' \
+                                     '"samplerList": ["Euler", "DPM++ 2M Karras", "DPM++ SDE Karras"]\n' \
+                                     '}')
 
         with gr.Row():
             negative_prompt1 = gr.Textbox(label="Negative prompt1", show_label=False,

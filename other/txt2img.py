@@ -360,9 +360,9 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
     nsfwDescribeNumIsRandom = jsonLoad["nsfwDescribeNumIsRandom"]
     nsfwDescribeNum = jsonLoad["nsfwDescribeNum"]
     nsfwDescribeRandomWeight = jsonLoad["nsfwDescribeRandomWeight"]
-    stepsAndScaleList = eval(jsonLoad["stepsAndScaleList"])
-    pixelList = eval(jsonLoad["pixelList"])
-    samplerList = eval(jsonLoad["samplerList"])
+    stepsAndScaleList = jsonLoad["stepsAndScaleList"]
+    pixelList = jsonLoad["pixelList"]
+    samplerList = jsonLoad["samplerList"]
 
     if useTheFollowingPrompt:
         print("仅生成图片")
