@@ -31,7 +31,7 @@ def on_ui_tabs():
                                          '"nsfwDescribeNum": 5,\n' \
                                          '"nsfwDescribeRandomWeight": 4,\n' \
                                          '"stepsAndScaleList": "[[20, 6]]",\n' \
-                                         '"pixelList": "[[768,1024],[1024,768]]"\n' \
+                                         '"pixelList": "[[768,1024],[1024,768]]",\n' \
                                          '''"samplerList": "['Euler', 'DPM++ 2M Karras', 'DPM++ SDE Karras']\n''' \
                                          '}')
 
