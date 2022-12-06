@@ -30,7 +30,6 @@ def on_ui_tabs():
                                          '"nsfwDescribeNumIsRandom": true,\n' \
                                          '"nsfwDescribeNum": 5,\n' \
                                          '"nsfwDescribeRandomWeight": 4,\n' \
-                                         '"justGenerate": true,\n' \
                                          '"stepsAndScaleList": "[[15, 7]]",\n' \
                                          '"pixelList": "[[768,1024],[1024,768]]"\n' \
                                          '}')
