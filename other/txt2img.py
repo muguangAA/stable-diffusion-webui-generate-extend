@@ -290,20 +290,20 @@ def optimizeTheFormat(s: str):
     return s
 
 
-def batchSave(processed, prompt, negative_prompt, steps, scale, width, height, seed, sampler_index):
+def batchSave(processed, prompt, negative_prompt, steps, scale, width, height, seed, sampler):
     # 我的保存图片
     print("图片的数量：" + str(len(processed.images)))
     imageList = processed.images
     if len(imageList) > 1:
-        saveImage(imageList[0], prompt, negative_prompt, steps, scale, width, height, 0, sampler_index)
+        saveImage(imageList[0], prompt, negative_prompt, steps, scale, width, height, 0, sampler)
         for i in range(1, len(imageList)):
-            saveImage(imageList[i], prompt, negative_prompt, steps, scale, width, height, seed, sampler_index)
+            saveImage(imageList[i], prompt, negative_prompt, steps, scale, width, height, seed, sampler)
             seed += 1
     else:
-        saveImage(imageList[0], prompt, negative_prompt, steps, scale, width, height, seed, sampler_index)
+        saveImage(imageList[0], prompt, negative_prompt, steps, scale, width, height, seed, sampler)
 
 
-def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed, sampler_index):
+def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed, sampler):
     filePath = "/content/stable-diffusion-webui/images/"
     drivePath = "/content/drive/MyDrive/stable-diffusion-webui/images/"
     os.makedirs(drivePath, exist_ok=True)
@@ -330,7 +330,7 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed,
             f.write(f'width: {width}\n')
             f.write(f'height: {height}\n')
             f.write(f'seed: {seed}\n')
-            f.write(f'sampler: {str(samplers[sampler_index])}\n')
+            f.write(f'sampler: {sampler}\n')
     except Exception as e:
         print("failed to save imageInfo:", e)
 
@@ -362,18 +362,23 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
     nsfwDescribeRandomWeight = jsonLoad["nsfwDescribeRandomWeight"]
     stepsAndScaleList = eval(jsonLoad["stepsAndScaleList"])
     pixelList = eval(jsonLoad["pixelList"])
+    samplerList = eval(jsonLoad["samplerList"])
 
     if useTheFollowingPrompt:
         print("仅生成图片")
         generateNum = n_iter
         n_iter = 1
         for n in range(generateNum):
+
             promptList = getPromptList(prompt, negative_prompt, methodName, isRandom,
                                        quality, featuresCharacters, others, background,
                                        characterPartNumIsRandom, 1, characterPartRandomWeight,
                                        nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight)
+
             for newPrompt in promptList:
+
                 print("prompt: " + newPrompt)
+
                 for stepsAndScale in stepsAndScaleList:
                     newSteps = stepsAndScale[0]
                     newScale = stepsAndScale[1]
@@ -382,67 +387,68 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                         newWidth = pixel[0]
                         newHeight = pixel[1]
 
-                        print(
-                            f"当前第{n + 1}张，steps:{newSteps}, scale:{newScale}, width:{newWidth}, height:{newHeight}, seed:{seed}")
+                        for sampler in samplerList:
+                            print(
+                                f"当前第{n + 1}张，steps:{newSteps}, scale:{newScale}, width:{newWidth}, height:{newHeight}, seed:{seed}")
+                            p = StableDiffusionProcessingTxt2Img(
+                                sd_model=shared.sd_model,
+                                outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
+                                outpath_grids=opts.outdir_grids or opts.outdir_txt2img_grids,
+                                prompt=prompt,
+                                styles=[prompt_style, prompt_style2],
+                                negative_prompt=negative_prompt,
+                                seed=seed,
+                                subseed=subseed,
+                                subseed_strength=subseed_strength,
+                                seed_resize_from_h=seed_resize_from_h,
+                                seed_resize_from_w=seed_resize_from_w,
+                                seed_enable_extras=seed_enable_extras,
+                                sampler_name=sampler,
+                                batch_size=batch_size,
+                                n_iter=n_iter,
+                                steps=steps,
+                                cfg_scale=cfg_scale,
+                                width=width,
+                                height=height,
+                                restore_faces=restore_faces,
+                                tiling=tiling,
+                                enable_hr=enable_hr,
+                                denoising_strength=denoising_strength if enable_hr else None,
+                                firstphase_width=firstphase_width if enable_hr else None,
+                                firstphase_height=firstphase_height if enable_hr else None,
+                            )
 
-                        p = StableDiffusionProcessingTxt2Img(
-                            sd_model=shared.sd_model,
-                            outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
-                            outpath_grids=opts.outdir_grids or opts.outdir_txt2img_grids,
-                            prompt=prompt,
-                            styles=[prompt_style, prompt_style2],
-                            negative_prompt=negative_prompt,
-                            seed=seed,
-                            subseed=subseed,
-                            subseed_strength=subseed_strength,
-                            seed_resize_from_h=seed_resize_from_h,
-                            seed_resize_from_w=seed_resize_from_w,
-                            seed_enable_extras=seed_enable_extras,
-                            sampler_name=sd_samplers.samplers[sampler_index].name,
-                            batch_size=batch_size,
-                            n_iter=n_iter,
-                            steps=steps,
-                            cfg_scale=cfg_scale,
-                            width=width,
-                            height=height,
-                            restore_faces=restore_faces,
-                            tiling=tiling,
-                            enable_hr=enable_hr,
-                            denoising_strength=denoising_strength if enable_hr else None,
-                            firstphase_width=firstphase_width if enable_hr else None,
-                            firstphase_height=firstphase_height if enable_hr else None,
-                        )
+                            p.scripts = modules.scripts.scripts_txt2img
+                            p.script_args = args
 
-                        p.scripts = modules.scripts.scripts_txt2img
-                        p.script_args = args
+                            if cmd_opts.enable_console_prompts:
+                                print(f"\ntxt2img: {prompt}", file=shared.progress_print_out)
 
-                        if cmd_opts.enable_console_prompts:
-                            print(f"\ntxt2img: {prompt}", file=shared.progress_print_out)
+                            processed = modules.scripts.scripts_txt2img.run(p, *args)
 
-                        processed = modules.scripts.scripts_txt2img.run(p, *args)
+                            if processed is None:
+                                processed = process_images(p)
 
-                        if processed is None:
-                            processed = process_images(p)
+                            p.close()
 
-                        p.close()
+                            shared.total_tqdm.clear()
 
-                        shared.total_tqdm.clear()
+                            generation_info_js = processed.js()
+                            if opts.samples_log_stdout:
+                                print(generation_info_js)
 
-                        generation_info_js = processed.js()
-                        if opts.samples_log_stdout:
-                            print(generation_info_js)
+                            if opts.do_not_show_images:
+                                processed.images = []
 
-                        if opts.do_not_show_images:
-                            processed.images = []
-
-                        # 保存图片
-                        batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width, height, seed,
-                                  sampler_index)
+                            # 保存图片
+                            batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width, height, seed,
+                                      sampler)
 
     else:
         print("生成且返回")
         print("prompt: " + prompt)
-        print("sampler: " + str(samplers[sampler_index]))
+        sampler = samplers[sampler_index].name
+        print("sampler: " + sampler)
         p = StableDiffusionProcessingTxt2Img(
             sd_model=shared.sd_model,
             outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
@@ -494,6 +500,6 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
 
         # 保存图片
         batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width, height, seed,
-                  sampler_index)
+                  sampler)
 
         return processed.images, generation_info_js, plaintext_to_html(processed.info)
