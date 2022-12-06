@@ -374,11 +374,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                                        quality, featuresCharacters, others, background,
                                        characterPartNumIsRandom, 1, characterPartRandomWeight,
                                        nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight)
-
             for newPrompt in promptList:
-
-                print("prompt: " + newPrompt)
-
                 for stepsAndScale in stepsAndScaleList:
                     newSteps = stepsAndScale[0]
                     newScale = stepsAndScale[1]
@@ -388,13 +384,14 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                         newHeight = pixel[1]
 
                         for sampler in samplerList:
+                            seed = random.randint(1, 4294967295)
                             print(
-                                f"当前第{n + 1}张，steps:{newSteps}, scale:{newScale}, width:{newWidth}, height:{newHeight}, seed:{seed}")
+                                f"当前第{n + 1}张，sampler:{sampler}, seed:{seed}, prompt: {newPrompt}")
                             p = StableDiffusionProcessingTxt2Img(
                                 sd_model=shared.sd_model,
                                 outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
                                 outpath_grids=opts.outdir_grids or opts.outdir_txt2img_grids,
-                                prompt=prompt,
+                                prompt=newPrompt,
                                 styles=[prompt_style, prompt_style2],
                                 negative_prompt=negative_prompt,
                                 seed=seed,
@@ -406,10 +403,10 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                                 sampler_name=sampler,
                                 batch_size=batch_size,
                                 n_iter=n_iter,
-                                steps=steps,
-                                cfg_scale=cfg_scale,
-                                width=width,
-                                height=height,
+                                steps=newSteps,
+                                cfg_scale=newScale,
+                                width=newWidth,
+                                height=newHeight,
                                 restore_faces=restore_faces,
                                 tiling=tiling,
                                 enable_hr=enable_hr,
@@ -422,7 +419,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                             p.script_args = args
 
                             if cmd_opts.enable_console_prompts:
-                                print(f"\ntxt2img: {prompt}", file=shared.progress_print_out)
+                                print(f"\ntxt2img: {newWidth}", file=shared.progress_print_out)
 
                             processed = modules.scripts.scripts_txt2img.run(p, *args)
 
@@ -441,7 +438,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                                 processed.images = []
 
                             # 保存图片
-                            batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width, height, seed,
+                            batchSave(processed, newPrompt, negative_prompt, newSteps, newScale, newWidth, newHeight, seed,
                                       sampler)
 
     else:
