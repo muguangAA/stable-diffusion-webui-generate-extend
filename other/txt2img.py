@@ -313,7 +313,7 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed,
     cur_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     # 设置文件名
-    baseFilename = f'{cur_time}__{seed}__{width}x{height}'.strip()
+    baseFilename = f'{cur_time}__{sampler}__{width}x{height}'.strip()
     suff = '.png'
     filename = filePath + baseFilename.strip()
 
