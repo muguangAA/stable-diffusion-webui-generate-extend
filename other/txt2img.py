@@ -19,7 +19,7 @@ backgroundList = ['indoors', 'tatami', 'church', 'shop', 'fountain', 'classroom'
                   'street', 'chinese style architecture', 'stairs', 'flower field',
                   'underwater', 'forest', 'futon', 'spring_(season)',
                   'ocean', 'cafe', 'city', 'park', 'restaurant',
-                  'Izakaya', 'outdoors', 'under table', 'winter'
+                  'Izakaya', 'outdoors', 'under table', 'winter',
                   'gym storeroom', 'public', 'on bed', 'fantasy',
                   'bedroom', 'gym storeroom', 'bathroom', 'swimming pool',
                   'garden', 'waterfall', 'beach']
