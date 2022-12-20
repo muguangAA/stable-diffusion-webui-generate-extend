@@ -24,7 +24,7 @@ backgroundList = ['indoors', 'tatami', 'church', 'shop', 'fountain', 'classroom'
                   'bedroom', 'gym storeroom', 'bathroom', 'swimming pool',
                   'garden', 'waterfall', 'beach']
 
-describeList = ['pubic tattoo', 'saliva', 'pussy juice', 'pussy juice puddle', 'pussy juice trail',
+describeList = ['pubic tattoo',  'pussy juice', 'pussy juice puddle', 'pussy juice trail',
                 'comforting', 'exhibitionism', 'flashing', 'masturbation', 'fireworks', 'feather',
                 'presenting', 'female ejaculation', 'female orgasm', 'self fondle', 'spread pussy',
                 'spread anus', 'nude', 'pussy juice stain', 'flowers meadows', 'sunset', 'moon',
@@ -32,18 +32,18 @@ describeList = ['pubic tattoo', 'saliva', 'pussy juice', 'pussy juice puddle', '
                 'milking machine', 'night',
                 'suggestive fluid', 'wet clothes', 'breasts out',
                 'bathing', 'clothed masturbation', 'have to pee', 'peeing', 'dusk', 'fog',
-                'waking up', 'forced orgasm', 'breath', 'self fondle',
-                'steaming body', 'lactation', 'egg vibrator',
+                'waking up', 'breath',
+                'steaming body', 'lactation',
                 'nipple tweak', 'looking at viewer', 'flower', 'magic circle',
                 'detailed light', 'snowflakes', 'flower petals', 'plant', 'crowd',
                 'beautiful detailed sky', 'beautiful detailed water', 'dappled sunlight',
                 'lying', 'sitting', 'squatting', 'panties around', 'tally',
                 'armpit peek', 'skirt lift', 'shy', 'embarrass', 'star',
-                'lifted by self', 'shoujo kitou-chuu', 'public nudity',
+                'lifted by self', 'shoujo kitou-chuu',
                 'panty lift', 'panty peek', 'pantyshot', 'dynamic angle' 'genshin impact',
                 'frottage', 'panties peek', 'angle',
                 'spread legs', 'leg up', 'legs apart', 'tiptoes', 'nipple slip', 'areola slip',
-                'witch', 'angel', 'princess', 'vibrator under panties',
+                'witch', 'angel', 'princess',
                 'full-face blush', 'clothes lift', 'bra lift', 'bra peek', 'bra pull']
 
 # 上装列表
@@ -194,7 +194,7 @@ def getBasePrompt(quality, featuresCharacters, others, background, characterPart
     s += randomBackground + ","
 
     # 检测tag加nsfw
-    if s.find("naked") != -1 or s.find("nudity") != -1 or s.find("nude") != -1 or s.find("sex") != -1 or s.find(
+    if s.find("naked") != -1 or s.find("nude") != -1 or s.find("sex") != -1 or s.find(
             "pussy") != -1:
         if s.find("nsfw") == -1:
             s = ""
@@ -313,7 +313,7 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed,
     cur_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     # 设置文件名
-    baseFilename = f'{cur_time}__{sampler}__{width}x{height}'.strip()
+    baseFilename = f'{cur_time}__{sampler}__{width}x{height}__{seed}'.strip()
     suff = '.png'
     filename = filePath + baseFilename.strip()
 
