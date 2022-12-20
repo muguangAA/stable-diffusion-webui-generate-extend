@@ -9,7 +9,7 @@ def on_ui_tabs():
                                 placeholder="Prompt (press Ctrl+Enter or Alt+Enter to generate)",
                                 value="(best quality:1.9),(masterpiece:1.2),(highres:1.2),extremely detailed CG unity 8K wallpaper,\n"
                                       "(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful),\n"
-                                      "(loli:1.3),(cute girl:1.4),small breasts,\n"
+                                      "(loli:1.3),(cute girl:1.4),\n"
                                       "(heart-shaped pupils),(beautiful detailed eyes)"
                                 )
 
@@ -22,7 +22,7 @@ def on_ui_tabs():
                                      '"isRandom": true,\n' \
                                      '"methodName": "getRandomPrompt",\n' \
                                      '"quality": "(best quality:1.9),(masterpiece:1.2),(highres:1.2),extremely detailed CG unity 8K wallpaper,(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful)",\n' \
-                                     '"featuresCharacters": "(loli:1.3),(cute girl:1.4),small breasts",\n' \
+                                     '"featuresCharacters": "(loli:1.3),(cute girl:1.4)",\n' \
                                      '"others": "(heart-shaped pupils),(beautiful detailed eyes)",\n' \
                                      '"background": "",\n' \
                                      '"characterPartNumIsRandom": true,\n' \
