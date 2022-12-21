@@ -10,7 +10,7 @@ def on_ui_tabs():
                                 value="(best quality:1.9),(masterpiece:1.2),(highres:1.2),extremely detailed CG unity 8K wallpaper,\n"
                                       "(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful),\n"
                                       "(loli:1.3),(cute girl:1.4),\n"
-                                      "(heart-shaped pupils),(beautiful detailed eyes)"
+                                      "(heart-shaped pupils:0.5),(beautiful detailed eyes)"
                                 )
 
         with gr.Row():
@@ -31,7 +31,7 @@ def on_ui_tabs():
                                      '"methodName": "getRandomPrompt",\n' \
                                      '"quality": "highly_detailed,extremely_detailed_CG_unity_8k_wallpaper,illustration,highres,absurdres",\n' \
                                      '"featuresCharacters": "(loli:1.3),(cute girl:1.4)",\n' \
-                                     '"others": "(heart-shaped pupils),(beautiful detailed eyes)",\n' \
+                                     '"others": "(heart-shaped pupils:0.5),(beautiful detailed eyes)",\n' \
                                      '"background": "",\n' \
                                      '"characterPartNumIsRandom": true,\n' \
                                      '"characterPartRandomWeight": 3,\n' \
