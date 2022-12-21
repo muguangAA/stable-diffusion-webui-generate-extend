@@ -348,6 +348,7 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed,
 def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2: str, steps: int, sampler_index: int, restore_faces: bool, tiling: bool, n_iter: int, batch_size: int, cfg_scale: float, seed: int, subseed: int, subseed_strength: float, seed_resize_from_h: int, seed_resize_from_w: int, seed_enable_extras: bool, height: int, width: int, enable_hr: bool, denoising_strength: float, firstphase_width: int, firstphase_height: int, *args):
 
     jsonLoad = json.loads(negative_prompt)
+    negative_prompt = jsonLoad["negative_prompt"]
     useTheFollowingPrompt = jsonLoad["useTheFollowingPrompt"]
     isRandom = jsonLoad["isRandom"]
     methodName = jsonLoad["methodName"]
