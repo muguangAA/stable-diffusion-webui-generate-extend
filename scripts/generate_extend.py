@@ -5,7 +5,7 @@ from modules import script_callbacks
 def on_ui_tabs():
     with gr.Blocks(analytics_enabled=False) as txt2img:
         with gr.Row():
-            prompt = gr.Textbox(label="Prompt", show_label=False, lines=2,
+            prompt1 = gr.Textbox(label="Prompt1", show_label=False, lines=5,
                                 placeholder="Prompt (press Ctrl+Enter or Alt+Enter to generate)",
                                 value="(best quality:1.9),(masterpiece:1.2),(highres:1.2),extremely detailed CG unity 8K wallpaper,\n"
                                       "(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful),\n"
@@ -14,25 +14,33 @@ def on_ui_tabs():
                                 )
 
         with gr.Row():
+            prompt2 = gr.Textbox(label="Prompt2", show_label=False, lines=5,
+                                placeholder="Prompt (press Ctrl+Enter or Alt+Enter to generate)",
+                                value="highly_detailed,extremely_detailed_CG_unity_8k_wallpaper,illustration,highres,absurdres,\n"
+                                      "(loli:1.3),(cute girl:1.4),\n"
+                                      "(heart-shaped pupils),(beautiful detailed eyes)"
+                                )
+
+        with gr.Row():
             parameter = gr.Textbox(label="parameter", show_label=True,
-                                   lines=30,
+                                   lines=20,
                                    value='{\n' \
                                      '"negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, username, blurry, artist name, bad feet, penis",\n' \
                                      '"useTheFollowingPrompt": false,\n' \
                                      '"isRandom": true,\n' \
                                      '"methodName": "getRandomPrompt",\n' \
-                                     '"quality": "(best quality:1.9),(masterpiece:1.2),(highres:1.2),extremely detailed CG unity 8K wallpaper,(ultra-detailed:1.2),(best illustration:1.2),(an extremely delicate and beautiful)",\n' \
+                                     '"quality": "highly_detailed,extremely_detailed_CG_unity_8k_wallpaper,illustration,highres,absurdres",\n' \
                                      '"featuresCharacters": "(loli:1.3),(cute girl:1.4)",\n' \
                                      '"others": "(heart-shaped pupils),(beautiful detailed eyes)",\n' \
                                      '"background": "",\n' \
                                      '"characterPartNumIsRandom": true,\n' \
                                      '"characterPartRandomWeight": 3,\n' \
                                      '"nsfwDescribeNumIsRandom": true,\n' \
-                                     '"nsfwDescribeNum": 5,\n' \
+                                     '"nsfwDescribeNum": 2,\n' \
                                      '"nsfwDescribeRandomWeight": 4,\n' \
-                                     '"stepsAndScaleList": [[20, 6]],\n' \
+                                     '"stepsAndScaleList": [[20, 7]],\n' \
                                      '"pixelList": [[768,1024],[1024,768]],\n' \
-                                     '"samplerList": ["DPM++ 2M Karras", "DPM++ SDE Karras"]\n' \
+                                     '"samplerList": ["Euler", "DPM++ SDE Karras"]\n' \
                                      '}')
 
         with gr.Row():
