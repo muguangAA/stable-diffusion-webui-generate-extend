@@ -384,7 +384,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                         newHeight = pixel[1]
 
                         for sampler in samplerList:
-                            seed = random.randint(1, 4294967295)
+                            seed = processing.get_fixed_seed(seed)
                             print(
                                 f"当前第{n + 1}张，sampler:{sampler}, seed:{seed}, prompt: {newPrompt}")
                             p = StableDiffusionProcessingTxt2Img(
@@ -446,6 +446,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
         print("prompt: " + prompt)
         sampler = samplers[sampler_index].name
         print("sampler: " + sampler)
+        seed = processing.get_fixed_seed(seed)
         p = StableDiffusionProcessingTxt2Img(
             sd_model=shared.sd_model,
             outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
