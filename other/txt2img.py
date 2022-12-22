@@ -47,26 +47,25 @@ describeList = ['pubic tattoo',  'pussy juice', 'pussy juice puddle', 'pussy jui
                 'full-face blush', 'clothes lift', 'bra lift', 'bra peek', 'bra pull']
 
 # 衣服列表
-
 clothesList = [ # 上装
                 'revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'kimono', 'bikini',
                'school uniform', 'pajamas', 'backless outfit', 'sleepwear', 'sweater', 'rope', 'cape', 'ribbon',
                'summer uniform', 'sailor hat', 'sailor shirt', 'coat', 'tailcoat', 'neck ring', 'uniform', 'kindergarten uniform',
                'cheerleader', 'cardigan', 'casual wear', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
                'cropped vest', 'gym shirt', 'jersey', 'open kimono', 'kimono lift', 'unbuttoned shirt', 'luxuriant bra',
-               'nippleless clothes', 'topless', 'neckerchief', 'Miko clothing', 'poncho',
+               'nippleless clothes', 'neckerchief', 'Miko clothing', 'poncho',
                'bikini top', 'bikini top removed', 'bra', 'no bra', 'heart pasties', 'see-through', 'downblouse',
                'bell choker', 'neckerchief', 'lolita', 'tuxedo', 'formal', 'japanese clothes', 'cheongsam',
                'loungewear', 'nightgown', 'babydoll', 'yukata', 'hanfu', 'gym uniform', 'yukata', 'sexy lingerie',
                'budget sarashi', 'shirt', 'undershirt', 'halter top', 'backless sweater', 'towel', 'hanfu',
                'hoodie', 'overcoat', 'trench coat', 'cloak', 'jacket', 'downblouse', 'wet clothes',
-               'soggy clothes', 'wet shirt', 'topless', 'swimsuit', 'school swimsuit', 'bell',
+               'soggy clothes', 'wet shirt', 'swimsuit', 'school swimsuit', 'bell',
                'naked cape', 'scarf', 'clothes writing', 'wedding dress', 'nun gown', 'chinese clothes',
                'virgin killer sweater', 'long shirt', 'collared shirt', 'sportswear', 'ballet',
                # 下装
                'wedding dress', 'sailor', 'dress', 'miniskirt', 'skirt', 'apron', 'wedding dress',
                'socks', 'pleated skirt', 'maid', 'suspender pants', 'summer long skirt', 'bloomers',
-               'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless', 'clothes between thighs',
+               'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless',
                'gym shorts', 'leotard pull', 'ankle socks', 'sheer legwear', 'leg cutout',
                'panties', 'wet panties', 'crotch plate', 'no panties', 'pink panties', 'bow panties',
                'crotchless panties', 'string panties', 'lace-trimmed panties', 'shorts',
@@ -76,7 +75,7 @@ clothesList = [ # 上装
 # 下装列表
 pantsList = ['wedding dress', 'sailor', 'dress', 'miniskirt', 'skirt', 'apron', 'wedding dress',
              'socks', 'pleated skirt', 'maid', 'suspender pants', 'summer long skirt', 'bloomers',
-             'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless', 'clothes between thighs',
+             'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless',
              'gym shorts', 'leotard pull', 'ankle socks', 'sheer legwear', 'leg cutout',
              'panties', 'wet panties', 'crotch plate', 'no panties', 'pink panties', 'bow panties',
              'crotchless panties', 'string panties', 'lace-trimmed panties', 'shorts',
