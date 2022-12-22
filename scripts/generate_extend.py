@@ -18,7 +18,7 @@ def on_ui_tabs():
                                 placeholder="Prompt (press Ctrl+Enter or Alt+Enter to generate)",
                                 value="highly_detailed,extremely_detailed_CG_unity_8k_wallpaper,illustration,highres,absurdres,\n"
                                       "(loli:1.3),(cute girl:1.4),\n"
-                                      "(heart-shaped pupils),(beautiful detailed eyes)"
+                                      "(heart-shaped pupils:0.5),(beautiful detailed eyes)"
                                 )
 
         with gr.Row():
