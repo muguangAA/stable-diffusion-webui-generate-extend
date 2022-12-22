@@ -47,7 +47,7 @@ describeList = ['pubic tattoo',  'pussy juice', 'pussy juice puddle', 'pussy jui
                 'full-face blush', 'clothes lift', 'bra lift', 'bra peek', 'bra pull']
 
 # 上装列表
-clothesList = ['revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'BDSM', 'kimono', 'bikini',
+clothesList = ['revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'kimono', 'bikini',
                'school uniform', 'pajamas', 'backless outfit', 'sleepwear', 'sweater', 'rope', 'cape', 'ribbon',
                'summer uniform', 'sailor hat', 'coat', 'tailcoat', 'neck ring', 'uniform', 'kindergarten uniform',
                'cheerleader', 'cardigan', 'casual', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
@@ -65,7 +65,7 @@ clothesList = ['revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'BD
 # 下装列表
 pantsList = ['wedding dress', 'sailor', 'dress', 'naked apron', 'miniskirt', 'skirt', 'apron',
              'socks', 'pleated skirt', 'maid', 'suspender pants', 'trousers', 'summer long skirt',
-             'shorts', 'pants', 'underpants', 'white thighhighs', 'sneakers', 'bottomless', 'clothes between thighs',
+             'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless', 'clothes between thighs',
              'gym shorts', 'leotard pull', 'ankle socks', 'sheer legwear', 'leg cutout',
              'panties', 'wet panties', 'crotch plate', 'no panties', 'pink panties', 'bow panties',
              'crotchless panties', 'string panties', 'lace-trimmed panties', 'shorts',
@@ -375,6 +375,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                                        quality, featuresCharacters, others, background,
                                        characterPartNumIsRandom, 1, characterPartRandomWeight,
                                        nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight)
+            seed = processing.get_fixed_seed(seed)
             for newPrompt in promptList:
                 for stepsAndScale in stepsAndScaleList:
                     newSteps = stepsAndScale[0]
@@ -385,7 +386,6 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                         newHeight = pixel[1]
 
                         for sampler in samplerList:
-                            seed = processing.get_fixed_seed(seed)
                             print(
                                 f"当前第{n + 1}张，sampler:{sampler}, seed:{seed}, prompt: {newPrompt}")
                             p = StableDiffusionProcessingTxt2Img(
