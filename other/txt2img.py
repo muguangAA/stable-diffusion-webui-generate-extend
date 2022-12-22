@@ -19,7 +19,7 @@ backgroundList = ['indoors', 'tatami', 'church', 'shop', 'fountain', 'classroom'
                   'street', 'chinese style architecture', 'stairs', 'flower field',
                   'underwater', 'forest', 'futon', 'spring_(season)',
                   'ocean', 'cafe', 'city', 'park', 'restaurant',
-                  'Izakaya', 'outdoors', 'under table', 'winter',
+                  'outdoors', 'under table', 'winter',
                   'gym storeroom', 'public', 'on bed', 'fantasy',
                   'bedroom', 'gym storeroom', 'bathroom', 'swimming pool',
                   'garden', 'waterfall', 'beach']
@@ -49,28 +49,28 @@ describeList = ['pubic tattoo',  'pussy juice', 'pussy juice puddle', 'pussy jui
 # 上装列表
 clothesList = ['revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'kimono', 'bikini',
                'school uniform', 'pajamas', 'backless outfit', 'sleepwear', 'sweater', 'rope', 'cape', 'ribbon',
-               'summer uniform', 'sailor hat', 'coat', 'tailcoat', 'neck ring', 'uniform', 'kindergarten uniform',
-               'cheerleader', 'cardigan', 'casual', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
+               'summer uniform', 'sailor hat', 'sailor shirt', 'coat', 'tailcoat', 'neck ring', 'uniform', 'kindergarten uniform',
+               'cheerleader', 'cardigan', 'casual wear', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
                'cropped vest', 'gym shirt', 'jersey', 'open kimono', 'kimono lift', 'unbuttoned shirt', 'luxuriant bra',
-               'nippleless clothes', 'topless', 'neckerchief',
+               'nippleless clothes', 'topless', 'neckerchief', 'Miko clothing', 'poncho',
                'bikini top', 'bikini top removed', 'bra', 'no bra', 'heart pasties', 'see-through', 'downblouse',
                'bell choker', 'neckerchief', 'lolita', 'tuxedo', 'formal', 'japanese clothes', 'cheongsam',
                'loungewear', 'nightgown', 'babydoll', 'yukata', 'hanfu', 'gym uniform', 'yukata', 'sexy lingerie',
-               'budget sarashi', 'shirt', 'undershirt', 'halter top', 'backless sweater',
+               'budget sarashi', 'shirt', 'undershirt', 'halter top', 'backless sweater', 'towel', 'hanfu',
                'hoodie', 'overcoat', 'trench coat', 'cloak', 'jacket', 'downblouse', 'wet clothes',
                'soggy clothes', 'wet shirt', 'topless', 'swimsuit', 'school swimsuit', 'bell',
-               'naked cape', 'scarf', 'clothes writing', 'wedding dress',
-               'virgin killer sweater', 'long shirt']
+               'naked cape', 'scarf', 'clothes writing', 'wedding dress', 'nun gown', 'chinese clothes',
+               'virgin killer sweater', 'long shirt', 'collared shirt', 'sportswear', 'ballet']
 
 # 下装列表
-pantsList = ['wedding dress', 'sailor', 'dress', 'naked apron', 'miniskirt', 'skirt', 'apron',
-             'socks', 'pleated skirt', 'maid', 'suspender pants', 'trousers', 'summer long skirt',
+pantsList = ['wedding dress', 'sailor', 'dress', 'miniskirt', 'skirt', 'apron', 'wedding dress',
+             'socks', 'pleated skirt', 'maid', 'suspender pants', 'summer long skirt', 'bloomers',
              'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless', 'clothes between thighs',
              'gym shorts', 'leotard pull', 'ankle socks', 'sheer legwear', 'leg cutout',
              'panties', 'wet panties', 'crotch plate', 'no panties', 'pink panties', 'bow panties',
              'crotchless panties', 'string panties', 'lace-trimmed panties', 'shorts',
-             'bottomless', 'asymmetrical legwear', 'loose socks', 'bubble skirt', 'diaper', 'crotch plate',
-             'uwabaki', 'cat tail']
+             'bottomless', 'asymmetrical legwear', 'loose socks', 'bubble skirt', 'crotch plate',
+             'cat tail']
 
 # 眼睛列表
 eyesList = ["beautiful golden eyes", "pink eyes", "blue eyes", "red eyes"]
