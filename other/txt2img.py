@@ -46,8 +46,10 @@ describeList = ['pubic tattoo',  'pussy juice', 'pussy juice puddle', 'pussy jui
                 'witch', 'angel', 'princess',
                 'full-face blush', 'clothes lift', 'bra lift', 'bra peek', 'bra pull']
 
-# 上装列表
-clothesList = ['revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'kimono', 'bikini',
+# 衣服列表
+
+clothesList = [ # 上装
+                'revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'kimono', 'bikini',
                'school uniform', 'pajamas', 'backless outfit', 'sleepwear', 'sweater', 'rope', 'cape', 'ribbon',
                'summer uniform', 'sailor hat', 'sailor shirt', 'coat', 'tailcoat', 'neck ring', 'uniform', 'kindergarten uniform',
                'cheerleader', 'cardigan', 'casual wear', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
@@ -60,7 +62,16 @@ clothesList = ['revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'ki
                'hoodie', 'overcoat', 'trench coat', 'cloak', 'jacket', 'downblouse', 'wet clothes',
                'soggy clothes', 'wet shirt', 'topless', 'swimsuit', 'school swimsuit', 'bell',
                'naked cape', 'scarf', 'clothes writing', 'wedding dress', 'nun gown', 'chinese clothes',
-               'virgin killer sweater', 'long shirt', 'collared shirt', 'sportswear', 'ballet']
+               'virgin killer sweater', 'long shirt', 'collared shirt', 'sportswear', 'ballet',
+               # 下装
+               'wedding dress', 'sailor', 'dress', 'miniskirt', 'skirt', 'apron', 'wedding dress',
+               'socks', 'pleated skirt', 'maid', 'suspender pants', 'summer long skirt', 'bloomers',
+               'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless', 'clothes between thighs',
+               'gym shorts', 'leotard pull', 'ankle socks', 'sheer legwear', 'leg cutout',
+               'panties', 'wet panties', 'crotch plate', 'no panties', 'pink panties', 'bow panties',
+               'crotchless panties', 'string panties', 'lace-trimmed panties', 'shorts',
+               'bottomless', 'asymmetrical legwear', 'loose socks', 'bubble skirt', 'crotch plate',
+               'cat tail']
 
 # 下装列表
 pantsList = ['wedding dress', 'sailor', 'dress', 'miniskirt', 'skirt', 'apron', 'wedding dress',
@@ -174,7 +185,7 @@ def getBasePrompt(quality, featuresCharacters, others, background, characterPart
                   nsfwDescribeRandomWeight):
     randomCharacterPart = getRandomCharacterPart(characterPartNum, characterPartNumIsRandom, characterPartRandomWeight)
     randomClothes = getRandomClothes()
-    randomPants = getRandomPants()
+    # randomPants = getRandomPants()
     randomEyes = getRandomEyes()
     randomHair = getRandomHair()
     randomDescribe = getRandomDescribe(nsfwDescribeNum, nsfwDescribeNumIsRandom, nsfwDescribeRandomWeight)
@@ -188,7 +199,7 @@ def getBasePrompt(quality, featuresCharacters, others, background, characterPart
     s += randomEyes + ",\n"
     s += randomHair + ",\n"
     s += randomClothes + ","
-    s += randomPants + ",\n"
+    # s += randomPants + ",\n"
     s += randomDescribe + ",\n"
     s += background + ","
     s += randomBackground + ","
@@ -206,7 +217,7 @@ def getBasePrompt(quality, featuresCharacters, others, background, characterPart
             s += randomEyes + ",\n"
             s += randomHair + ",\n"
             s += randomClothes + ","
-            s += randomPants + ",\n"
+            # s += randomPants + ",\n"
             s += randomDescribe + ",\n"
             s += background + ","
             s += randomBackground + ","
@@ -239,7 +250,7 @@ def getSFWAndNSFWRandomPrompt(quality, featuresCharacters, others, background, c
     s += getRandomEyes() + ",\n"
     s += getRandomHair() + ",\n"
     s += getRandomClothes() + ","
-    s += getRandomPants() + ",\n"
+    # s += getRandomPants() + ",\n"
     s += getRandomDescribe(nsfwDescribeNum, nsfwDescribeNumIsRandom, nsfwDescribeRandomWeight) + ",\n"
     s += background + ","
     s += getRandomBackground() + ","
