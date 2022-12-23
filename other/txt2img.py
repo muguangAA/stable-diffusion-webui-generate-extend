@@ -13,7 +13,6 @@ import os
 from modules.sd_samplers import samplers
 import json
 
-
 # 背景列表
 backgroundList = ['indoors', 'tatami', 'church', 'shop', 'fountain', 'classroom',
                   'street', 'chinese style architecture', 'stairs', 'flower field',
@@ -24,7 +23,7 @@ backgroundList = ['indoors', 'tatami', 'church', 'shop', 'fountain', 'classroom'
                   'bedroom', 'gym storeroom', 'bathroom', 'swimming pool',
                   'garden', 'waterfall', 'beach']
 
-describeList = ['pubic tattoo',  'pussy juice', 'pussy juice puddle', 'pussy juice trail',
+describeList = ['pubic tattoo', 'pussy juice', 'pussy juice puddle', 'pussy juice trail',
                 'comforting', 'exhibitionism', 'flashing', 'masturbation', 'fireworks', 'feather',
                 'presenting', 'female ejaculation', 'female orgasm', 'self fondle', 'spread pussy',
                 'spread anus', 'nude', 'pussy juice stain', 'flowers meadows', 'sunset', 'moon',
@@ -47,30 +46,30 @@ describeList = ['pubic tattoo',  'pussy juice', 'pussy juice puddle', 'pussy jui
                 'full-face blush', 'clothes lift', 'bra lift', 'bra peek', 'bra pull']
 
 # 衣服列表
-clothesList = [ # 上装
-                'revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'kimono', 'bikini',
-               'school uniform', 'pajamas', 'backless outfit', 'sleepwear', 'sweater', 'rope', 'cape', 'ribbon',
-               'summer uniform', 'sailor hat', 'sailor shirt', 'coat', 'tailcoat', 'neck ring', 'uniform', 'kindergarten uniform',
-               'cheerleader', 'cardigan', 'casual wear', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
-               'cropped vest', 'gym shirt', 'jersey', 'open kimono', 'kimono lift', 'unbuttoned shirt', 'luxuriant bra',
-               'nippleless clothes', 'neckerchief', 'Miko clothing', 'poncho',
-               'bikini top', 'bikini top removed', 'bra', 'no bra', 'heart pasties', 'see-through', 'downblouse',
-               'bell choker', 'neckerchief', 'lolita', 'tuxedo', 'formal', 'japanese clothes', 'cheongsam',
-               'loungewear', 'nightgown', 'babydoll', 'yukata', 'hanfu', 'gym uniform', 'yukata', 'sexy lingerie',
-               'budget sarashi', 'shirt', 'undershirt', 'halter top', 'backless sweater', 'towel', 'hanfu',
-               'hoodie', 'overcoat', 'trench coat', 'cloak', 'jacket', 'downblouse', 'wet clothes',
-               'soggy clothes', 'wet shirt', 'swimsuit', 'school swimsuit', 'bell',
-               'naked cape', 'scarf', 'clothes writing', 'wedding dress', 'nun gown', 'chinese clothes',
-               'virgin killer sweater', 'long shirt', 'collared shirt', 'sportswear', 'ballet',
-               # 下装
-               'wedding dress', 'sailor', 'dress', 'miniskirt', 'skirt', 'apron', 'wedding dress',
-               'socks', 'pleated skirt', 'maid', 'suspender pants', 'summer long skirt', 'bloomers',
-               'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless',
-               'gym shorts', 'leotard pull', 'ankle socks', 'sheer legwear', 'leg cutout',
-               'panties', 'wet panties', 'crotch plate', 'no panties', 'pink panties', 'bow panties',
-               'crotchless panties', 'string panties', 'lace-trimmed panties', 'shorts',
-               'bottomless', 'asymmetrical legwear', 'loose socks', 'bubble skirt', 'crotch plate',
-               'cat tail']
+clothesList = [  # 上装
+    'revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'kimono', 'bikini',
+    'school uniform', 'pajamas', 'backless outfit', 'sleepwear', 'sweater', 'rope', 'cape', 'ribbon',
+    'summer uniform', 'sailor hat', 'sailor shirt', 'coat', 'tailcoat', 'neck ring', 'uniform', 'kindergarten uniform',
+    'cheerleader', 'cardigan', 'casual wear', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
+    'cropped vest', 'gym shirt', 'jersey', 'open kimono', 'kimono lift', 'unbuttoned shirt', 'luxuriant bra',
+    'nippleless clothes', 'neckerchief', 'Miko clothing', 'poncho',
+    'bikini top', 'bikini top removed', 'bra', 'no bra', 'heart pasties', 'see-through', 'downblouse',
+    'bell choker', 'neckerchief', 'lolita', 'tuxedo', 'formal', 'japanese clothes', 'cheongsam',
+    'loungewear', 'nightgown', 'babydoll', 'yukata', 'hanfu', 'gym uniform', 'yukata', 'sexy lingerie',
+    'budget sarashi', 'shirt', 'undershirt', 'halter top', 'backless sweater', 'towel', 'hanfu',
+    'hoodie', 'overcoat', 'trench coat', 'cloak', 'jacket', 'downblouse', 'wet clothes',
+    'soggy clothes', 'wet shirt', 'swimsuit', 'school swimsuit', 'bell',
+    'naked cape', 'scarf', 'clothes writing', 'wedding dress', 'nun gown', 'chinese clothes',
+    'virgin killer sweater', 'long shirt', 'collared shirt', 'sportswear', 'ballet',
+    # 下装
+    'wedding dress', 'sailor', 'dress', 'miniskirt', 'skirt', 'apron', 'wedding dress',
+    'socks', 'pleated skirt', 'maid', 'suspender pants', 'summer long skirt', 'bloomers',
+    'shorts', 'underpants', 'white thighhighs', 'sneakers', 'bottomless',
+    'gym shorts', 'leotard pull', 'ankle socks', 'sheer legwear', 'leg cutout',
+    'panties', 'wet panties', 'crotch plate', 'no panties', 'pink panties', 'bow panties',
+    'crotchless panties', 'string panties', 'lace-trimmed panties', 'shorts',
+    'bottomless', 'asymmetrical legwear', 'loose socks', 'bubble skirt', 'crotch plate',
+    'cat tail']
 
 # 下装列表
 pantsList = ['wedding dress', 'sailor', 'dress', 'miniskirt', 'skirt', 'apron', 'wedding dress',
@@ -355,8 +354,11 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed,
         handle.close()
 
 
-def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2: str, steps: int, sampler_index: int, restore_faces: bool, tiling: bool, n_iter: int, batch_size: int, cfg_scale: float, seed: int, subseed: int, subseed_strength: float, seed_resize_from_h: int, seed_resize_from_w: int, seed_enable_extras: bool, height: int, width: int, enable_hr: bool, denoising_strength: float, firstphase_width: int, firstphase_height: int, *args):
-
+def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2: str, steps: int, sampler_index: int,
+            restore_faces: bool, tiling: bool, n_iter: int, batch_size: int, cfg_scale: float, seed: int, subseed: int,
+            subseed_strength: float, seed_resize_from_h: int, seed_resize_from_w: int, seed_enable_extras: bool,
+            height: int, width: int, enable_hr: bool, denoising_strength: float, firstphase_width: int,
+            firstphase_height: int, *args):
     jsonLoad = json.loads(negative_prompt)
     negative_prompt = jsonLoad["negative_prompt"]
     useTheFollowingPrompt = jsonLoad["useTheFollowingPrompt"]
@@ -374,7 +376,6 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
     stepsAndScaleList = jsonLoad["stepsAndScaleList"]
     pixelList = jsonLoad["pixelList"]
     samplerList = jsonLoad["samplerList"]
-    n_iter = 1
 
     if useTheFollowingPrompt:
         print("仅生成图片")
@@ -395,61 +396,65 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
                         newHeight = pixel[1]
 
                         for sampler in samplerList:
-                            print(
-                                f"当前第{n + 1}张，sampler:{sampler}, seed:{seed}, prompt: {newPrompt}")
-                            p = StableDiffusionProcessingTxt2Img(
-                                sd_model=shared.sd_model,
-                                outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
-                                outpath_grids=opts.outdir_grids or opts.outdir_txt2img_grids,
-                                prompt=newPrompt,
-                                styles=[prompt_style, prompt_style2],
-                                negative_prompt=negative_prompt,
-                                seed=seed,
-                                subseed=subseed,
-                                subseed_strength=subseed_strength,
-                                seed_resize_from_h=seed_resize_from_h,
-                                seed_resize_from_w=seed_resize_from_w,
-                                seed_enable_extras=seed_enable_extras,
-                                sampler_name=sampler,
-                                batch_size=batch_size,
-                                n_iter=n_iter,
-                                steps=newSteps,
-                                cfg_scale=newScale,
-                                width=newWidth,
-                                height=newHeight,
-                                restore_faces=restore_faces,
-                                tiling=tiling,
-                                enable_hr=enable_hr,
-                                denoising_strength=denoising_strength if enable_hr else None,
-                                firstphase_width=firstphase_width if enable_hr else None,
-                                firstphase_height=firstphase_height if enable_hr else None,
-                            )
 
-                            p.scripts = modules.scripts.scripts_txt2img
-                            p.script_args = args
+                            for _ in range(n_iter):
+                                print(
+                                    f"当前第{n + 1}张，sampler:{sampler}, seed:{seed}, prompt: {newPrompt}")
+                                p = StableDiffusionProcessingTxt2Img(
+                                    sd_model=shared.sd_model,
+                                    outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
+                                    outpath_grids=opts.outdir_grids or opts.outdir_txt2img_grids,
+                                    prompt=newPrompt,
+                                    styles=[prompt_style, prompt_style2],
+                                    negative_prompt=negative_prompt,
+                                    seed=seed,
+                                    subseed=subseed,
+                                    subseed_strength=subseed_strength,
+                                    seed_resize_from_h=seed_resize_from_h,
+                                    seed_resize_from_w=seed_resize_from_w,
+                                    seed_enable_extras=seed_enable_extras,
+                                    sampler_name=sampler,
+                                    batch_size=batch_size,
+                                    n_iter=n_iter,
+                                    steps=newSteps,
+                                    cfg_scale=newScale,
+                                    width=newWidth,
+                                    height=newHeight,
+                                    restore_faces=restore_faces,
+                                    tiling=tiling,
+                                    enable_hr=enable_hr,
+                                    denoising_strength=denoising_strength if enable_hr else None,
+                                    firstphase_width=firstphase_width if enable_hr else None,
+                                    firstphase_height=firstphase_height if enable_hr else None,
+                                )
 
-                            if cmd_opts.enable_console_prompts:
-                                print(f"\ntxt2img: {newWidth}", file=shared.progress_print_out)
+                                p.scripts = modules.scripts.scripts_txt2img
+                                p.script_args = args
 
-                            processed = modules.scripts.scripts_txt2img.run(p, *args)
+                                if cmd_opts.enable_console_prompts:
+                                    print(f"\ntxt2img: {newWidth}", file=shared.progress_print_out)
 
-                            if processed is None:
-                                processed = process_images(p)
+                                processed = modules.scripts.scripts_txt2img.run(p, *args)
 
-                            p.close()
+                                if processed is None:
+                                    processed = process_images(p)
 
-                            shared.total_tqdm.clear()
+                                p.close()
 
-                            generation_info_js = processed.js()
-                            if opts.samples_log_stdout:
-                                print(generation_info_js)
+                                shared.total_tqdm.clear()
 
-                            if opts.do_not_show_images:
-                                processed.images = []
+                                generation_info_js = processed.js()
+                                if opts.samples_log_stdout:
+                                    print(generation_info_js)
 
-                            # 保存图片
-                            batchSave(processed, newPrompt, negative_prompt, newSteps, newScale, newWidth, newHeight, seed,
-                                      sampler)
+                                if opts.do_not_show_images:
+                                    processed.images = []
+
+                                # 保存图片
+                                batchSave(processed, newPrompt, negative_prompt, newSteps, newScale, newWidth,
+                                          newHeight, seed,
+                                          sampler)
+                                seed += 1
 
     else:
         print("生成且返回")
