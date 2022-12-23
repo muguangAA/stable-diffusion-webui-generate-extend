@@ -374,12 +374,11 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
     stepsAndScaleList = jsonLoad["stepsAndScaleList"]
     pixelList = jsonLoad["pixelList"]
     samplerList = jsonLoad["samplerList"]
+    n_iter = 1
 
     if useTheFollowingPrompt:
         print("仅生成图片")
-        generateNum = n_iter
-        n_iter = 1
-        for n in range(generateNum):
+        for n in range(1000):
 
             promptList = getPromptList(prompt, negative_prompt, methodName, isRandom,
                                        quality, featuresCharacters, others, background,
