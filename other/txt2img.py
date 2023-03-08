@@ -410,7 +410,7 @@ def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, step
 
         batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width,
                   height, seed,
-                  samplers)
+                  sd_samplers.samplers[sampler_index].name)
 
         return processed.images, generation_info_js, plaintext_to_html(processed.info), plaintext_to_html(
             processed.comments)
