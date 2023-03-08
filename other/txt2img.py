@@ -1,5 +1,6 @@
 import modules.scripts
 from modules import sd_samplers
+from modules.generation_parameters_copypaste import create_override_settings_dict
 from modules.processing import StableDiffusionProcessing, Processed, StableDiffusionProcessingTxt2Img, \
     StableDiffusionProcessingImg2Img, process_images
 from modules.shared import opts, cmd_opts
