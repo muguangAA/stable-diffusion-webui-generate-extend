@@ -23,19 +23,8 @@ def on_ui_tabs():
             parameter = gr.Textbox(label="parameter", show_label=True,
                                    lines=20,
                                    value='{\n' \
-                                     '"negative_prompt": "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, username, blurry, artist name, bad feet, penis",\n' \
+                                     '"negative_prompt": "Default",\n' \
                                      '"useTheFollowingPrompt": false,\n' \
-                                     '"isRandom": true,\n' \
-                                     '"methodName": "getRandomPrompt",\n' \
-                                     '"quality": "highly_detailed,extremely_detailed_CG_unity_8k_wallpaper,illustration,highres,absurdres",\n' \
-                                     '"featuresCharacters": "(loli:1.3),(cute girl:1.4)",\n' \
-                                     '"others": "(heart-shaped pupils:0.5),(beautiful detailed eyes)",\n' \
-                                     '"background": "",\n' \
-                                     '"characterPartNumIsRandom": true,\n' \
-                                     '"characterPartRandomWeight": 3,\n' \
-                                     '"nsfwDescribeNumIsRandom": true,\n' \
-                                     '"nsfwDescribeNum": 2,\n' \
-                                     '"nsfwDescribeRandomWeight": 4,\n' \
                                      '"stepsAndScaleList": [[20, 7]],\n' \
                                      '"pixelList": [[768,1024],[1024,768]],\n' \
                                      '"samplerList": ["Euler", "DPM++ SDE Karras"]\n' \

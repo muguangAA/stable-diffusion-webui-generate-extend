@@ -178,114 +178,22 @@ def getCharacterPart():
     return getString(random.sample(characterPartList, 1))
 
 
-def getBasePrompt(quality, featuresCharacters, others, background, characterPartNum, characterPartNumIsRandom,
-                  characterPartRandomWeight, nsfwDescribeNum, nsfwDescribeNumIsRandom,
-                  nsfwDescribeRandomWeight):
-    randomCharacterPart = getRandomCharacterPart(characterPartNum, characterPartNumIsRandom, characterPartRandomWeight)
+def getPrompt(prompt, jsonLoad):
+    randomCharacterPart = getRandomCharacterPart(2, True, 5)
     randomClothes = getRandomClothes()
-    # randomPants = getRandomPants()
     randomEyes = getRandomEyes()
     randomHair = getRandomHair()
-    randomDescribe = getRandomDescribe(nsfwDescribeNum, nsfwDescribeNumIsRandom, nsfwDescribeRandomWeight)
+    randomDescribe = getRandomDescribe(3, True, 5)
     randomBackground = getRandomBackground()
-
     s = ""
-    s += quality + ",\n"
-    s += featuresCharacters + ","
     s += randomCharacterPart + ",\n"
-    s += others + ","
     s += randomEyes + ",\n"
     s += randomHair + ",\n"
     s += randomClothes + ","
-    # s += randomPants + ",\n"
     s += randomDescribe + ",\n"
-    s += background + ","
     s += randomBackground + ","
 
-    # 检测tag加nsfw
-    if s.find("naked") != -1 or s.find("nude") != -1 or s.find("sex") != -1 or s.find(
-            "pussy") != -1:
-        if s.find("nsfw") == -1:
-            s = ""
-            s += quality + ",\n"
-            s += featuresCharacters + ","
-            s += "nsfw,nipples" + ","
-            s += randomCharacterPart + ",\n"
-            s += others + ","
-            s += randomEyes + ",\n"
-            s += randomHair + ",\n"
-            s += randomClothes + ","
-            # s += randomPants + ",\n"
-            s += randomDescribe + ",\n"
-            s += background + ","
-            s += randomBackground + ","
-
-    return s
-
-
-def getRandomPrompt(quality, featuresCharacters, others, background, characterPartNum, characterPartNumIsRandom,
-                    characterPartRandomWeight, nsfwDescribeNum, nsfwDescribeNumIsRandom,
-                    nsfwDescribeRandomWeight):
-    ans = []
-    ans.append(
-        getBasePrompt(quality, featuresCharacters, others, background, characterPartNum, characterPartNumIsRandom,
-                      characterPartRandomWeight, nsfwDescribeNum, nsfwDescribeNumIsRandom,
-                      nsfwDescribeRandomWeight))
-    return ans
-
-
-def getSFWAndNSFWRandomPrompt(quality, featuresCharacters, others, background, characterPartNum,
-                              characterPartNumIsRandom,
-                              characterPartRandomWeight, nsfwDescribeNum, nsfwDescribeNumIsRandom,
-                              nsfwDescribeRandomWeight):
-    ans = []
-
-    s = ""
-    s += quality + ",\n"
-    s += featuresCharacters + ","
-    s += getRandomCharacterPart(characterPartNum, characterPartNumIsRandom, characterPartRandomWeight) + ",\n"
-    s += others + ","
-    s += getRandomEyes() + ",\n"
-    s += getRandomHair() + ",\n"
-    s += getRandomClothes() + ","
-    # s += getRandomPants() + ",\n"
-    s += getRandomDescribe(nsfwDescribeNum, nsfwDescribeNumIsRandom, nsfwDescribeRandomWeight) + ",\n"
-    s += background + ","
-    s += getRandomBackground() + ","
-    ans.append(s)
-    ans.append(
-        getBasePrompt(quality, featuresCharacters, others, background, characterPartNum, characterPartNumIsRandom,
-                      characterPartRandomWeight, nsfwDescribeNum, nsfwDescribeNumIsRandom,
-                      nsfwDescribeRandomWeight))
-    return ans
-
-
-def getPromptList(prompt, negative_prompt, methodName, isRandom, quality, featuresCharacters, others, background,
-                  characterPartNumIsRandom, characterPartNum, characterPartRandomWeight, nsfwDescribeNumIsRandom,
-                  nsfwDescribeNum, nsfwDescribeRandomWeight):
-    ans = []
-    if isRandom is not None and isRandom:
-        ls = []
-        if methodName == "getRandomPrompt":
-            ls = getRandomPrompt(quality, featuresCharacters, others, background,
-                                 characterPartNum, characterPartNumIsRandom,
-                                 characterPartRandomWeight, nsfwDescribeNum,
-                                 nsfwDescribeNumIsRandom, nsfwDescribeRandomWeight)
-
-        elif methodName == "getSFWAndNSFWRandomPrompt":
-            ls = getSFWAndNSFWRandomPrompt(quality, featuresCharacters, others, background,
-                                           characterPartNum, characterPartNumIsRandom,
-                                           characterPartRandomWeight, nsfwDescribeNum,
-                                           nsfwDescribeNumIsRandom, nsfwDescribeRandomWeight)
-        else:
-            print("未找到方法")
-
-        for s in ls:
-            ans.append(optimizeTheFormat(s))
-    else:
-        s = quality + "," + featuresCharacters + "," + others + "," + background
-        ans.append(optimizeTheFormat(s))
-    return ans
+    return optimizeTheFormat(s)
 
 
 def optimizeTheFormat(s: str):
@@ -354,25 +262,12 @@ def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed,
         handle.close()
 
 
-def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2: str, steps: int, sampler_index: int,
-            restore_faces: bool, tiling: bool, n_iter: int, batch_size: int, cfg_scale: float, seed: int, subseed: int,
-            subseed_strength: float, seed_resize_from_h: int, seed_resize_from_w: int, seed_enable_extras: bool,
-            height: int, width: int, enable_hr: bool, denoising_strength: float, firstphase_width: int,
-            firstphase_height: int, *args):
+def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, steps: int, sampler_index: int, restore_faces: bool, tiling: bool, n_iter: int, batch_size: int, cfg_scale: float, seed: int, subseed: int, subseed_strength: float, seed_resize_from_h: int, seed_resize_from_w: int, seed_enable_extras: bool, height: int, width: int, enable_hr: bool, denoising_strength: float, hr_scale: float, hr_upscaler: str, hr_second_pass_steps: int, hr_resize_x: int, hr_resize_y: int, override_settings_texts, *args):
+    override_settings = create_override_settings_dict(override_settings_texts)
+
     jsonLoad = json.loads(negative_prompt)
     negative_prompt = jsonLoad["negative_prompt"]
     useTheFollowingPrompt = jsonLoad["useTheFollowingPrompt"]
-    isRandom = jsonLoad["isRandom"]
-    methodName = jsonLoad["methodName"]
-    quality = jsonLoad["quality"]
-    featuresCharacters = jsonLoad["featuresCharacters"]
-    others = jsonLoad["others"]
-    background = jsonLoad["background"]
-    characterPartNumIsRandom = jsonLoad["characterPartNumIsRandom"]
-    characterPartRandomWeight = jsonLoad["characterPartRandomWeight"]
-    nsfwDescribeNumIsRandom = jsonLoad["nsfwDescribeNumIsRandom"]
-    nsfwDescribeNum = jsonLoad["nsfwDescribeNum"]
-    nsfwDescribeRandomWeight = jsonLoad["nsfwDescribeRandomWeight"]
     stepsAndScaleList = jsonLoad["stepsAndScaleList"]
     pixelList = jsonLoad["pixelList"]
     samplerList = jsonLoad["samplerList"]
@@ -380,80 +275,76 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
     if useTheFollowingPrompt:
         print("仅生成图片")
         for n in range(1000):
-
-            promptList = getPromptList(prompt, negative_prompt, methodName, isRandom,
-                                       quality, featuresCharacters, others, background,
-                                       characterPartNumIsRandom, 1, characterPartRandomWeight,
-                                       nsfwDescribeNumIsRandom, nsfwDescribeNum, nsfwDescribeRandomWeight)
             seed = processing.get_fixed_seed(seed)
-            for newPrompt in promptList:
-                for stepsAndScale in stepsAndScaleList:
-                    newSteps = stepsAndScale[0]
-                    newScale = stepsAndScale[1]
+            newPrompt = getPrompt(prompt, jsonLoad)
+            for stepsAndScale in stepsAndScaleList:
+                newSteps = stepsAndScale[0]
+                newScale = stepsAndScale[1]
 
-                    for pixel in pixelList:
-                        newWidth = pixel[0]
-                        newHeight = pixel[1]
+                for pixel in pixelList:
+                    newWidth = pixel[0]
+                    newHeight = pixel[1]
 
-                        for sampler in samplerList:
+                    for sampler in samplerList:
+                        print(
+                            f"当前第{n + 1}张，sampler:{sampler}, seed:{seed}, prompt: {newPrompt}")
+                        p = StableDiffusionProcessingTxt2Img(
+                            sd_model=shared.sd_model,
+                            outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
+                            outpath_grids=opts.outdir_grids or opts.outdir_txt2img_grids,
+                            prompt=newPrompt,
+                            styles=prompt_styles,
+                            negative_prompt=negative_prompt,
+                            seed=seed,
+                            subseed=subseed,
+                            subseed_strength=subseed_strength,
+                            seed_resize_from_h=seed_resize_from_h,
+                            seed_resize_from_w=seed_resize_from_w,
+                            seed_enable_extras=seed_enable_extras,
+                            sampler_name=sampler,
+                            batch_size=batch_size,
+                            n_iter=n_iter,
+                            steps=newSteps,
+                            cfg_scale=newScale,
+                            width=newWidth,
+                            height=newHeight,
+                            restore_faces=restore_faces,
+                            tiling=tiling,
+                            enable_hr=enable_hr,
+                            denoising_strength=denoising_strength if enable_hr else None,
+                            hr_scale=hr_scale,
+                            hr_upscaler=hr_upscaler,
+                            hr_second_pass_steps=hr_second_pass_steps,
+                            hr_resize_x=hr_resize_x,
+                            hr_resize_y=hr_resize_y,
+                            override_settings=override_settings,
+                        )
 
-                            print(
-                                f"当前第{n + 1}张，sampler:{sampler}, seed:{seed}, prompt: {newPrompt}")
-                            p = StableDiffusionProcessingTxt2Img(
-                                sd_model=shared.sd_model,
-                                outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
-                                outpath_grids=opts.outdir_grids or opts.outdir_txt2img_grids,
-                                prompt=newPrompt,
-                                styles=[prompt_style, prompt_style2],
-                                negative_prompt=negative_prompt,
-                                seed=seed,
-                                subseed=subseed,
-                                subseed_strength=subseed_strength,
-                                seed_resize_from_h=seed_resize_from_h,
-                                seed_resize_from_w=seed_resize_from_w,
-                                seed_enable_extras=seed_enable_extras,
-                                sampler_name=sampler,
-                                batch_size=batch_size,
-                                n_iter=n_iter,
-                                steps=newSteps,
-                                cfg_scale=newScale,
-                                width=newWidth,
-                                height=newHeight,
-                                restore_faces=restore_faces,
-                                tiling=tiling,
-                                enable_hr=enable_hr,
-                                denoising_strength=denoising_strength if enable_hr else None,
-                                firstphase_width=firstphase_width if enable_hr else None,
-                                firstphase_height=firstphase_height if enable_hr else None,
-                            )
+                        p.scripts = modules.scripts.scripts_txt2img
+                        p.script_args = args
 
-                            p.scripts = modules.scripts.scripts_txt2img
-                            p.script_args = args
+                        if cmd_opts.enable_console_prompts:
+                            print(f"\ntxt2img: {prompt}", file=shared.progress_print_out)
 
-                            if cmd_opts.enable_console_prompts:
-                                print(f"\ntxt2img: {newWidth}", file=shared.progress_print_out)
+                        processed = modules.scripts.scripts_txt2img.run(p, *args)
 
-                            processed = modules.scripts.scripts_txt2img.run(p, *args)
+                        if processed is None:
+                            processed = process_images(p)
 
-                            if processed is None:
-                                processed = process_images(p)
+                        p.close()
 
-                            p.close()
+                        shared.total_tqdm.clear()
 
-                            shared.total_tqdm.clear()
+                        generation_info_js = processed.js()
+                        if opts.samples_log_stdout:
+                            print(generation_info_js)
 
-                            generation_info_js = processed.js()
-                            if opts.samples_log_stdout:
-                                print(generation_info_js)
+                        if opts.do_not_show_images:
+                            processed.images = []
 
-                            if opts.do_not_show_images:
-                                processed.images = []
-
-                            # 保存图片
-                            batchSave(processed, newPrompt, negative_prompt, newSteps, newScale, newWidth,
-                                      newHeight, seed,
-                                      sampler)
-
+                        batchSave(processed, newPrompt, negative_prompt, newSteps, newScale, newWidth,
+                                  newHeight, seed,
+                                  sampler)
     else:
         print("生成且返回")
         print("prompt: " + prompt)
@@ -465,7 +356,7 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
             outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
             outpath_grids=opts.outdir_grids or opts.outdir_txt2img_grids,
             prompt=prompt,
-            styles=[prompt_style, prompt_style2],
+            styles=prompt_styles,
             negative_prompt=negative_prompt,
             seed=seed,
             subseed=subseed,
@@ -484,9 +375,14 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
             tiling=tiling,
             enable_hr=enable_hr,
             denoising_strength=denoising_strength if enable_hr else None,
-            firstphase_width=firstphase_width if enable_hr else None,
-            firstphase_height=firstphase_height if enable_hr else None,
+            hr_scale=hr_scale,
+            hr_upscaler=hr_upscaler,
+            hr_second_pass_steps=hr_second_pass_steps,
+            hr_resize_x=hr_resize_x,
+            hr_resize_y=hr_resize_y,
+            override_settings=override_settings,
         )
+
         p.scripts = modules.scripts.scripts_txt2img
         p.script_args = args
 
@@ -509,8 +405,10 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
         if opts.do_not_show_images:
             processed.images = []
 
-        # 保存图片
-        batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width, height, seed,
-                  sampler)
+        batchSave(processed, prompt, negative_prompt, steps, cfg_scale, width,
+                  height, seed,
+                  samplers)
 
-        return processed.images, generation_info_js, plaintext_to_html(processed.info)
+        return processed.images, generation_info_js, plaintext_to_html(processed.info), plaintext_to_html(
+            processed.comments)
+
