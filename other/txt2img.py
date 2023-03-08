@@ -179,14 +179,14 @@ def getCharacterPart():
     return getString(random.sample(characterPartList, 1))
 
 
-def getPrompt(prompt, jsonLoad):
+def getPrompt(prompt):
     randomCharacterPart = getRandomCharacterPart(2, True, 5)
     randomClothes = getRandomClothes()
     randomEyes = getRandomEyes()
     randomHair = getRandomHair()
     randomDescribe = getRandomDescribe(3, True, 5)
     randomBackground = getRandomBackground()
-    s = ""
+    s = prompt + ",\n"
     s += randomCharacterPart + ",\n"
     s += randomEyes + ",\n"
     s += randomHair + ",\n"
@@ -279,7 +279,7 @@ def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, step
         samplerList = jsonLoad["samplerList"]
         for n in range(1000):
             seed = processing.get_fixed_seed(seed)
-            newPrompt = getPrompt(prompt, jsonLoad)
+            newPrompt = getPrompt(prompt)
             for stepsAndScale in stepsAndScaleList:
                 newSteps = stepsAndScale[0]
                 newScale = stepsAndScale[1]
