@@ -275,7 +275,7 @@ def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, step
     pixelList = jsonLoad["pixelList"]
     samplerList = jsonLoad["samplerList"]
 
-    if useTheFollowingPrompt:
+    if useTheFollowingPrompt is not None and useTheFollowingPrompt:
         print("仅生成图片")
         for n in range(1000):
             seed = processing.get_fixed_seed(seed)
