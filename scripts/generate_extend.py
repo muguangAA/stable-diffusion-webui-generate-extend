@@ -23,7 +23,6 @@ def on_ui_tabs():
             parameter = gr.Textbox(label="parameter", show_label=True,
                                    lines=20,
                                    value='{\n' \
-                                     '"negative_prompt": "Default",\n' \
                                      '"useTheFollowingPrompt": false,\n' \
                                      '"stepsAndScaleList": [[20, 7]],\n' \
                                      '"pixelList": [[768,1024],[1024,768]],\n' \
