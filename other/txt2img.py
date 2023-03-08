@@ -353,7 +353,6 @@ def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, step
         print("prompt: " + prompt)
         sampler = samplers[sampler_index].name
         print("sampler: " + sampler)
-        seed = processing.get_fixed_seed(seed)
         p = StableDiffusionProcessingTxt2Img(
             sd_model=shared.sd_model,
             outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
