@@ -7,7 +7,7 @@ def on_ui_tabs():
         with gr.Row():
             prompt1 = gr.Textbox(label="Prompt1", show_label=False, lines=5,
                                 placeholder="Prompt (press Ctrl+Enter or Alt+Enter to generate)",
-                                value="highly_detailed, extremely_detailed_CG_unity_8k_wallpaper, illustration, highres, absurdres, beautiful_detailed_eyes, finely_detailed_light, highly_detail_hair,"
+                                value="highly_detailed, extremely_detailed_CG_unity_8k_wallpaper,illustration,highres,absurdres,"
                                       "(loli:1.3),cute,girl,"
                                 )
 
