@@ -40,7 +40,7 @@ describeList = ['pubic tattoo', 'pussy juice', 'pussy juice puddle', 'pussy juic
                 'lying', 'sitting', 'squatting', 'panties around', 'tally',
                 'armpit peek', 'skirt lift', 'shy', 'embarrass', 'star',
                 'lifted by self', 'shoujo kitou-chuu',
-                'panty lift', 'pantyshot', 'dynamic angle' 'genshin impact',
+                'panty lift', 'pantyshot', 'dynamic angle', 'genshin impact',
                 'frottage', 'angle',
                 'spread legs', 'leg up', 'legs apart', 'tiptoes', 'nipple slip', 'areola slip',
                 'witch', 'angel', 'princess',
