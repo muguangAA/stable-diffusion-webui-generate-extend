@@ -25,6 +25,7 @@ def on_ui_tabs():
                                    value='{\n' \
                                      '"useTheFollowingPrompt": false,\n' \
                                      '"stepsAndScaleList": [[20, 7]],\n' \
+                                     '"negative_prompt": "Default",\n' \
                                      '"pixelList": [[768,1024],[1024,768]],\n' \
                                      '"samplerList": ["Euler", "DPM++ SDE Karras"]\n' \
                                      '}')
