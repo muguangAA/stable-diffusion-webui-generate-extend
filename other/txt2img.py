@@ -92,7 +92,7 @@ hairColorList = ["pink hair", "blonde hair", "sliver hair"]
 hairStyleList = ["long hair", "gradient hair", "side ponytail", "princess head", "ponytail"]
 
 # 身体特征描述
-characterPartList = ["nsfw,(finely detailed pussy:1.2)", "nsfw,(pussy),"
+characterPartList = ["nsfw,(finely detailed pussy:1.2)", "nsfw,(pussy)",
                      "nsfw,nipples", "nsfw,nipples,(pussy)", "nsfw,nipples,(finely detailed pussy:1.2)"]
 
 
