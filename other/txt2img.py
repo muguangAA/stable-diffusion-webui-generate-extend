@@ -92,8 +92,8 @@ hairColorList = ["pink hair", "blonde hair", "sliver hair"]
 hairStyleList = ["long hair", "gradient hair", "side ponytail", "princess head", "ponytail"]
 
 # 身体特征描述
-characterPartList = ["nsfw,(finely detailed pussy)", "nsfw,(finely detailed pussy),(vaginal)",
-                     "nsfw,nipples", "nsfw,nipples,(finely detailed pussy)", "nipples"]
+characterPartList = ["nsfw,(finely detailed pussy:1.4)",
+                     "nsfw,nipples", "nsfw,nipples,(finely detailed pussy:1.4)"]
 
 
 def getString(ls):
