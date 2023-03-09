@@ -50,10 +50,10 @@ describeList = ['pubic tattoo', 'pussy juice', 'pussy juice puddle', 'pussy juic
 clothesList = [  # 上装
     'revealing clothes', 'baggy pants', 'bath towel', 'serafuku', 'kimono', 'bikini',
     'school uniform', 'pajamas', 'backless outfit', 'sleepwear', 'sweater', 'rope', 'cape', 'ribbon',
-    'summer uniform', 'sailor hat', 'sailor shirt', 'coat', 'tailcoat', 'neck ring', 'uniform', 'kindergarten uniform',
+    'summer uniform', 'sailor hat', 'sailor shirt', 'coat', 'tailcoat', 'uniform', 'kindergarten uniform',
     'cheerleader', 'cardigan', 'casual wear', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
     'cropped vest', 'gym shirt', 'jersey', 'open kimono', 'kimono lift', 'unbuttoned shirt', 'luxuriant bra',
-    'nippleless clothes', 'neckerchief', 'Miko clothing', 'poncho',
+    'nippleless clothes', 'Miko clothing', 'poncho',
     'bikini top', 'bikini top removed', 'bra', 'no bra', 'heart pasties', 'see-through', 'downblouse',
     'bell choker', 'neckerchief', 'lolita', 'tuxedo', 'formal', 'japanese clothes', 'cheongsam',
     'loungewear', 'nightgown', 'babydoll', 'yukata', 'hanfu', 'gym uniform', 'yukata', 'sexy lingerie',
