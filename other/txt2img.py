@@ -30,9 +30,9 @@ describeList = ['pubic tattoo', 'pussy juice', 'pussy juice puddle', 'pussy juic
                 'spread anus', 'nude', 'pussy juice stain', 'flowers meadows', 'sunset', 'moon',
                 "valentine", "halloween", "christmas", 'tanabata', 'cherry blossoms',
                 'milking machine', 'night',
-                'suggestive fluid', 'wet clothes', 'breasts out',
+                'wet clothes', 'breasts out',
                 'bathing', 'clothed masturbation', 'have to pee', 'peeing', 'dusk', 'fog',
-                'waking up', 'breath',
+                'waking up', 'breath', 'smile',
                 'steaming body', 'lactation',
                 'nipple tweak', 'looking at viewer', 'flower', 'magic circle',
                 'detailed light', 'snowflakes', 'flower petals', 'plant', 'crowd',
@@ -278,6 +278,7 @@ def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, step
         pixelList = jsonLoad["pixelList"]
         samplerList = jsonLoad["samplerList"]
         for n in range(1000):
+            seed = random.randint(1, 4294967295)
             seed = processing.get_fixed_seed(seed)
             newPrompt = getPrompt(prompt)
             for stepsAndScale in stepsAndScaleList:
