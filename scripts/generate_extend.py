@@ -34,9 +34,10 @@ def on_ui_tabs():
             negative_prompt1 = gr.Textbox(label="Negative prompt1", show_label=False,
                                           lines=3,
                                           placeholder="Negative prompt (press Ctrl+Enter or Alt+Enter to generate)",
-                                          value="lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit,"
-                                                " fewer digits, cropped, worst quality, low quality, normal quality,"
-                                                " jpeg artifacts, username, blurry, artist name, bad feet, penis"
+                                          value="artifacts, signature, watermark, username, blurry, artist name, "
+                                                "bad felowres, bad anatomy, bad hands, text, error, missing fingers, "
+                                                "extra digit, fewer digits, cropped, worst quality, low quality, "
+                                                "normal quality, jpeg artifacts "
                                           )
 
         with gr.Row():
