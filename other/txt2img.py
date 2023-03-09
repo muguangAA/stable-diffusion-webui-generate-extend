@@ -40,11 +40,11 @@ describeList = ['pubic tattoo', 'pussy juice', 'pussy juice puddle', 'pussy juic
                 'lying', 'sitting', 'squatting', 'panties around', 'tally',
                 'armpit peek', 'skirt lift', 'shy', 'embarrass', 'star',
                 'lifted by self', 'shoujo kitou-chuu',
-                'panty lift', 'panty peek', 'pantyshot', 'dynamic angle' 'genshin impact',
-                'frottage', 'panties peek', 'angle',
+                'panty lift', 'pantyshot', 'dynamic angle' 'genshin impact',
+                'frottage', 'angle',
                 'spread legs', 'leg up', 'legs apart', 'tiptoes', 'nipple slip', 'areola slip',
                 'witch', 'angel', 'princess',
-                'full-face blush', 'clothes lift', 'bra lift', 'bra peek', 'bra pull']
+                'full-face blush', 'clothes lift', 'bra lift', 'bra pull']
 
 # 衣服列表
 clothesList = [  # 上装
