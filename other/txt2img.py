@@ -222,8 +222,10 @@ def batchSave(processed, prompt, negative_prompt, steps, scale, width, height, s
 
 
 def saveImage(image, prompt, negative_prompt, steps, scale, width, height, seed, sampler):
-    filePath = "/content/stable-diffusion-webui/images/"
-    drivePath = "/content/drive/MyDrive/stable-diffusion-webui/images/"
+    # filePath = "/content/stable-diffusion-webui/images/"
+    # drivePath = "/content/drive/MyDrive/stable-diffusion-webui/images/"
+    filePath = "/mnt/workspace/stable-diffusion-webui/images/"
+    drivePath = "/mnt/workspace/images/"
     os.makedirs(drivePath, exist_ok=True)
     os.makedirs(filePath, exist_ok=True)
 
