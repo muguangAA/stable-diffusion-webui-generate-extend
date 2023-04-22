@@ -52,11 +52,11 @@ clothesList = [  # 上装
     'school uniform', 'pajamas', 'backless outfit', 'sleepwear', 'sweater', 'rope', 'cape', 'ribbon',
     'summer uniform', 'sailor hat', 'sailor shirt', 'coat', 'tailcoat', 'uniform', 'kindergarten uniform',
     'cheerleader', 'cardigan', 'casual wear', 'heart cutout', 'corset', 'crop top', 'cropped shirt',
-    'cropped vest', 'gym shirt', 'jersey', 'open kimono', 'kimono lift', 'unbuttoned shirt', 'luxuriant bra',
+    'cropped vest', 'gym shirt', 'jersey', 'unbuttoned shirt', 'luxuriant bra',
     'nippleless clothes', 'Miko clothing', 'poncho',
     'bikini top', 'bikini top removed', 'bra', 'no bra', 'heart pasties', 'see-through', 'downblouse',
     'bell choker', 'neckerchief', 'lolita', 'tuxedo', 'formal', 'japanese clothes', 'cheongsam',
-    'loungewear', 'nightgown', 'babydoll', 'yukata', 'hanfu', 'gym uniform', 'yukata', 'sexy lingerie',
+    'loungewear', 'nightgown', 'babydoll', 'hanfu', 'gym uniform', 'sexy lingerie',
     'budget sarashi', 'shirt', 'undershirt', 'halter top', 'backless sweater', 'towel', 'hanfu',
     'hoodie', 'overcoat', 'trench coat', 'cloak', 'jacket', 'downblouse', 'wet clothes',
     'soggy clothes', 'wet shirt', 'swimsuit', 'school swimsuit', 'bell',
@@ -89,7 +89,7 @@ eyesList = ["beautiful golden eyes", "pink eyes", "blue eyes", "red eyes"]
 hairColorList = ["pink hair", "blonde hair", "sliver hair"]
 
 # 发型
-hairStyleList = ["long hair", "gradient hair", "side ponytail", "princess head", "ponytail"]
+hairStyleList = ["long hair", "gradient hair", "princess head"]
 
 # 身体特征描述
 characterPartList = ["nsfw,(finely detailed pussy:1.2)", "nsfw,(pussy)",
